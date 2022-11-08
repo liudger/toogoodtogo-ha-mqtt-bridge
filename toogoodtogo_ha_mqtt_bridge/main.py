@@ -185,7 +185,7 @@ def is_latest_version():
     act_version = version.parse(app_info["version"])
     token_version = version.parse(tokens["token_version"])
 
-    # Fix for users having already a tokens.json containt 'Varies with device'
+    # Fix for users having already a tokens.json containing 'Varies with device'
     # see https://github.com/MaxWinterstein/toogoodtogo-ha-mqtt-bridge/issues/87
     if str(token_version) == "Varies with device":
         minor_diff = 999
@@ -275,7 +275,7 @@ def rebuild_tgtg_client():
     )
 
 
-def check_for_removed_stores(shops: []):
+def check_for_removed_stores(shops: list[dict]):
     path = settings.get("data_dir") + "/known_shops.json"
 
     checked_items = [shop["item"]["item_id"] for shop in shops]
